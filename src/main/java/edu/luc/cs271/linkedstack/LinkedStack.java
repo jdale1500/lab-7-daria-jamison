@@ -31,13 +31,13 @@ public class LinkedStack<E> implements IStack<E> {
   @Override
   public E pop() {
     // Done
-    if (isEmpt()) {
+    if (isEmpty()) {
       throw new NoSuchElementException();
     }
     else {
       E done = top.data;
       top = top.next;
-      size = 1;
+      size = size-1;
       return done;
     }
   }
