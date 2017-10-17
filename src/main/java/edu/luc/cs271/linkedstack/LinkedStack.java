@@ -19,7 +19,7 @@ public class LinkedStack<E> implements IStack<E> {
 
   @Override
   public E peek() {
-    // TODO
+    // Done
     if(isEmpty()) {
       throw new NoSuchElementException();
     }
@@ -30,8 +30,16 @@ public class LinkedStack<E> implements IStack<E> {
 
   @Override
   public E pop() {
-    // TODO
-    return null;
+    // Done
+    if (isEmpt()) {
+      throw new NoSuchElementException();
+    }
+    else {
+      E done = top.data;
+      top = top.next;
+      size = 1;
+      return done;
+    }
   }
 
   @Override
