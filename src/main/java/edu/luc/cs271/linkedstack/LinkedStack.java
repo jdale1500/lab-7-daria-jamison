@@ -2,18 +2,22 @@ package edu.luc.cs271.linkedstack;
 //small
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.NoSuchElementException;
 
 public class LinkedStack<E> implements IStack<E> {
 
   /** The topmost node of this stack. The stack gets pushed down from here. */
   private Node<E> top;
+  private int size = 0;
+  
 
   // Done why don't we need an explicit constructor? Linked list has already been implemented
 
   @Override //done
   public E push(final E obj) {
-    top = new Node<> (obj, top);
+    Node<E> temps = top;
+    top = new Node<>(obj);
+    top.next = temps;
     return obj;
   }
 
@@ -24,7 +28,7 @@ public class LinkedStack<E> implements IStack<E> {
       throw new NoSuchElementException();
     }
     else {
-      return top.data
+      return top.data;
     }
   }
 
@@ -44,10 +48,10 @@ public class LinkedStack<E> implements IStack<E> {
 
   @Override
   public boolean isEmpty() {
-    if (top == null){
-      return true;
+    if (top != null){
+      return false;
     }
-    return false;
+    return true;
   }
 
   @Override
@@ -60,6 +64,6 @@ public class LinkedStack<E> implements IStack<E> {
       more.add(done.data);
       done = done.next;
     }
-    return done;
+    return more;
   }
 }
