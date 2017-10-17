@@ -15,12 +15,9 @@ public class ReverseLines {
       mores.push(line);
     }
     String temps = "";
-    while (!mores.isEmpty()){
+    while (!mores.isEmpty()) {
       temps = temps + " " + mores.pop();
     }
     System.out.println(temps);
-
-    }
-
   }
-
+}
