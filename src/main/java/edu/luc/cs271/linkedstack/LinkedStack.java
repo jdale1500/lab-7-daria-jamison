@@ -44,14 +44,22 @@ public class LinkedStack<E> implements IStack<E> {
 
   @Override
   public boolean isEmpty() {
-    // TODO
+    if (top == null){
+      return true;
+    }
     return false;
   }
 
   @Override
   public List<E> asList() {
-    // TODO implement using an ArrayList preallocated with the right size
-    // TODO add any instance variable(s) required to support this
-    return null;
+    // Done implement using an ArrayList preallocated with the right size
+    // Done add any instance variable(s) required to support this
+    Node <E> done = top;
+    final ArrayList<E> more = new ArrayList<>(size);
+    while (done != null){
+      more.add(done.data);
+      done = done.next;
+    }
+    return done;
   }
 }
